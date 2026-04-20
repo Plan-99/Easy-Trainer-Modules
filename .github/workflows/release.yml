@@ -1,0 +1,53 @@
+name: Package Modules
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Package each module
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          mkdir -p dist
+
+          # Package all modules from robots/, sensors/, extensions/
+          for category in robots sensors extensions; do
+            if [ ! -d "$category" ]; then continue; fi
+            for module_dir in "$category"/*/; do
+              [ ! -d "$module_dir" ] && continue
+              module_json="$module_dir/module.json"
+              if [ ! -f "$module_json" ]; then
+                echo "SKIP: $module_dir (no module.json)"
+                continue
+              fi
+
+              module_id=$(python3 -c "import json; print(json.load(open('$module_json'))['id'])")
+              folder_name=$(basename "$module_dir")
+
+              # Create tarball: module-{id}-{version}.tar.gz
+              tar_name="module-${module_id}-${VERSION}.tar.gz"
+              tar -czf "dist/$tar_name" -C "$category" "$folder_name"
+              echo "PACKAGED: $tar_name"
+            done
+          done
+
+          ls -lh dist/
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.tar.gz
+          generate_release_notes: true
