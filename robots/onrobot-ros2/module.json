@@ -9,7 +9,10 @@
   "description": "OnRobot 그리퍼 드라이버",
   "dependencies": {
     "apt": [],
-    "pip": ["pymodbus"],
+    "pip": [
+      "pymodbus"
+    ],
     "modules": []
-  }
+  },
+  "install_script": "install.sh"
 }

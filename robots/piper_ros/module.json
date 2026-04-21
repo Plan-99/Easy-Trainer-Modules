@@ -8,8 +8,17 @@
   "build": "colcon",
   "description": "Agilex Piper 로봇 드라이버",
   "dependencies": {
-    "apt": ["ros-humble-moveit", "ros-humble-ros2-control", "ros-humble-ros2-controllers"],
-    "pip": ["piper_sdk"],
-    "modules": ["custom_interfaces"]
-  }
+    "apt": [
+      "ros-humble-moveit",
+      "ros-humble-ros2-control",
+      "ros-humble-ros2-controllers"
+    ],
+    "pip": [
+      "piper_sdk"
+    ],
+    "modules": [
+      "custom_interfaces"
+    ]
+  },
+  "install_script": "install.sh"
 }

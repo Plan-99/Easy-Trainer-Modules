@@ -8,8 +8,11 @@
   "build": "colcon",
   "description": "Fairino 협동로봇 드라이버",
   "dependencies": {
-    "apt": ["ros-humble-moveit"],
+    "apt": [
+      "ros-humble-moveit"
+    ],
     "pip": [],
     "modules": []
-  }
+  },
+  "install_script": "install.sh"
 }

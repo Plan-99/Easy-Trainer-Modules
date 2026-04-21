@@ -8,8 +8,12 @@
   "build": "colcon",
   "description": "USB 웹캠 (Logitech 등)",
   "dependencies": {
-    "apt": ["ros-humble-usb-cam", "ros-humble-image-transport-plugins"],
+    "apt": [
+      "ros-humble-usb-cam",
+      "ros-humble-image-transport-plugins"
+    ],
     "pip": [],
     "modules": []
-  }
+  },
+  "install_script": "install.sh"
 }

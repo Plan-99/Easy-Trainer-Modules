@@ -11,5 +11,6 @@
     "apt": [],
     "pip": [],
     "modules": []
-  }
+  },
+  "install_script": "install.sh"
 }

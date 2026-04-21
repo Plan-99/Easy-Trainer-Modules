@@ -8,8 +8,12 @@
   "build": "colcon",
   "description": "Kinova Kortex 로봇 드라이버",
   "dependencies": {
-    "apt": ["ros-humble-moveit", "ros-humble-ros2-control"],
+    "apt": [
+      "ros-humble-moveit",
+      "ros-humble-ros2-control"
+    ],
     "pip": [],
     "modules": []
-  }
+  },
+  "install_script": "install.sh"
 }

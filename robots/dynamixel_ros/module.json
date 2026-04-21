@@ -8,8 +8,16 @@
   "build": "colcon",
   "description": "Robotis Dynamixel 서보 모터 드라이버",
   "dependencies": {
-    "apt": ["ros-humble-ros2-control", "ros-humble-controller-manager"],
-    "pip": ["dynamixel_sdk"],
-    "modules": ["custom_interfaces"]
-  }
+    "apt": [
+      "ros-humble-ros2-control",
+      "ros-humble-controller-manager"
+    ],
+    "pip": [
+      "dynamixel_sdk"
+    ],
+    "modules": [
+      "custom_interfaces"
+    ]
+  },
+  "install_script": "install.sh"
 }

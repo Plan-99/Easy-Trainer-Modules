@@ -8,8 +8,11 @@
   "build": "colcon",
   "description": "EasyTrainer 커스텀 ROS 메시지 타입",
   "dependencies": {
-    "apt": ["ros-humble-rosidl-default-generators"],
+    "apt": [
+      "ros-humble-rosidl-default-generators"
+    ],
     "pip": [],
     "modules": []
-  }
+  },
+  "install_script": "install.sh"
 }

@@ -9,7 +9,10 @@
   "description": "시리얼 통신 유틸리티",
   "dependencies": {
     "apt": [],
-    "pip": ["pyserial"],
+    "pip": [
+      "pyserial"
+    ],
     "modules": []
-  }
+  },
+  "install_script": "install.sh"
 }
