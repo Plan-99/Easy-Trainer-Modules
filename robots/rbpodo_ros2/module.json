@@ -7,8 +7,9 @@
   "install_path": "ros2_ws/src",
   "build": "colcon",
   "description": "Rainbow Robotics RBPodo 로봇 드라이버",
+  "install_script": "install.sh",
   "dependencies": {
-    "apt": ["ros-humble-moveit"],
+    "apt": ["ros-humble-moveit", "cmake", "build-essential"],
     "pip": [],
     "modules": []
   }
